@@ -1,38 +1,43 @@
-const router = require('express').Router();
-const main = require('../controllers/main');
+const router = require("express").Router();
+const main = require("../controllers/main");
 
 /**
  * @swagger
+ * tags:
+ *   name: main
+ *   description: 메인 페이지 조회
+ */
+
+router.get("/", main.main.get);
+router.get("/shop/:id", main.shop.get);
+
+/**
+ * @swagger
+ * paths:
  *  /:
  *    get:
- *      tags:
- *      - main
+ *      summary: "메인 페이지 데이터 조회"
+ *      description: "서버에 데이터를 보내지 않고 Get방식으로 요청"
+ *      tags: [main]
+ *      responses:
+ *        "200":
+ *          description: 정보 전달 완료
+ *        "400":
+ *          description: 자료 조회 실패
  */
-
-// *      description: 모든 제품 조회
-// *      produces:
-// *      - application/json
-// *      parameters:
-// *        - in: query
-// *          name: category
-// *          required: false
-// *          schema:
-// *            type: integer
-// *            description: 카테고리
-// *      responses:
-// *       200:
-// *        description: 제품 조회 성공
-
-router.get('/', main.main.get);
 
 /**
  * @swagger
+ * paths:
  *  /shop/:id:
  *    get:
- *      tags:
- *      - main
+ *      summary: "가게 상세 정보 조회"
+ *      description: "서버에 데이터를 보내지 않고 Get방식으로 요청"
+ *      tags: [main]
+ *      responses:
+ *        "200":
+ *          description: 정보 전달 완료
+ *        "400":
+ *          description: 자료 조회 실패
  */
-
-router.get('/shop/:id', main.shop.get);
-
 module.exports = router;

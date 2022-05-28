@@ -59,5 +59,14 @@ module.exports = {
     } catch (err) {
       return res.status(500).send({ message: "서버 에러" });
     }
+    /*  #swagger.parameters['obj'] = {
+                in: 'body',
+                description: 'Some description...',
+                schema: {
+                    $name: 'Jhon Doe',
+                    $age: 29,
+                    about: ''
+                }
+        } */
   },
 };

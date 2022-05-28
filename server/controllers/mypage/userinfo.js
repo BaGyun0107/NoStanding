@@ -2,7 +2,7 @@ module.exports = {
   get: (req, res) => {
     res.send('');
   },
-  post: (req, res) => {
+  patch: (req, res) => {
     res.send('');
   },
   delete: (req, res) => {
